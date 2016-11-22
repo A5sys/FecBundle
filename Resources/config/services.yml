@@ -1,0 +1,69 @@
+parameters:
+    fec.computer.debitcredit.class: 'A5sys\FecBundle\Computer\DebitCredit\DebitCreditComputer'
+    fec.computer.montantsens.alpha.class: 'A5sys\FecBundle\Computer\DebitCredit\MontantSensAlphaComputer'
+    fec.computer.montantsens.num.class: 'A5sys\FecBundle\Computer\DebitCredit\MontantSensNumsComputer'
+
+    fec.dumper.csv.class: 'A5sys\FecBundle\Dumper\CsvDumper'
+
+    fec.validator.standard.class: 'A5sys\FecBundle\Validator\StandardValidator'
+    fec.validator.ba.tresorerie.class: 'A5sys\FecBundle\Validator\BATresorerieValidator'
+    fec.validator.bnc.tresorerie.class: 'A5sys\FecBundle\Validator\BNCTresorerieValidator'
+
+    fec.normalizer.standard.class: 'A5sys\FecBundle\Normalizer\StandardNormalizer'
+    fec.normalizer.ba.tresorerie.class: 'A5sys\FecBundle\Normalizer\BATresorerieNormalizer'
+    fec.normalizer.bnc.tresorerie.class: 'A5sys\FecBundle\Normalizer\BNCTresorerieNormalizer'
+
+    fec.manager.class: 'A5sys\FecBundle\Service\FecManager'
+
+services:
+
+    # computers
+    fec.computer.debitcredit:
+        class: %fec.computer.debitcredit.class%
+
+    fec.computer.montantsens.alpha:
+        class: %fec.computer.montantsens.alpha.class%
+
+    fec.computer.montantsens.num:
+        class: %fec.computer.montantsens.num.class%
+
+    # dumpers
+    fec.dumper.csv.tab.txt:
+        class: %fec.dumper.csv.class%
+        arguments:
+            - "\t"
+            - "txt"
+
+    fec.dumper.csv.pipe.txt:
+        class: %fec.dumper.csv.class%
+        arguments:
+            - "|"
+            - "txt"
+
+    # validators
+    fec.validator.standard:
+        class: %fec.validator.standard.class%
+
+    fec.validator.ba.tresorerie:
+        class: %fec.validator.ba.tresorerie.class%
+        parent: fec.validator.standard
+
+    fec.validator.bnc.tresorerie:
+        class: %fec.validator.bnc.tresorerie.class%
+        parent: fec.validator.ba.tresorerie
+
+    # normalizers
+    fec.normalizer.standard:
+        class: %fec.normalizer.standard.class%
+        arguments:
+            - "@fec.validator.standard"
+
+    fec.normalizer.ba.tresorerie:
+        class: %fec.normalizer.ba.tresorerie.class%
+        arguments:
+            - "@fec.validator.ba.tresorerie"
+
+    fec.normalizer.bnc.tresorerie:
+        class: %fec.normalizer.ba.tresorerie.class%
+        arguments:
+            - "@fec.validator.bnc.tresorerie"

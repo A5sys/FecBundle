@@ -1,0 +1,13 @@
+{
+    "name": "a5sys/fec-bundle",
+    "type": "library",
+    "description": "Generates FEC files (french accounting)",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6",
+		"symfony/symfony": ">=2.7"
+    },
+    "autoload": {
+        "psr-4": { "A5sys\\FecBundle\\": "" }
+    }
+}
