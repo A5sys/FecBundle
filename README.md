@@ -35,23 +35,15 @@ All fields are standardized, even if Debit and Credit fields can be switched by 
 
 # Installation #
 
-First add the gitlab VCS in your composer.json:
-
-    "repositories" : [
-            {
-                "type" : "vcs",
-                "url" : "git@gitlab.a5sys.com:a5sys/fec-bundle.git"
-            }
-	]
-
-Then, use composer
+Use composer
 
     php composer.phar require "a5sys/fec-bundle:dev-master"
+
 or
 
     composer require "a5sys/fec-bundle:dev-master"
 
-Finally, declare bundle in `AppKernel.php` :
+Declare bundle in `AppKernel.php` :
 
     new A5sys\FecBundle\FecBundle(),
 
