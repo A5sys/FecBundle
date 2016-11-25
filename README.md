@@ -13,7 +13,7 @@ FEC files are standardized. Theire are four formats that french accounting stand
 - XML file following XSD spec
 
 **This bundle can currently produce the two first type : flat file CSV tab or pipe separator**, but can be extended to plug an adapter of your own to produce the XML or flat fixed width column format.
-
+ 
 A FEC file, whatever its type, must have at least 18 fields by accounting line, but it can be 21 or 22 columns.
 
 **18 columns** :
