@@ -13,7 +13,7 @@ FEC files are standardized. Theire are four formats that french accounting stand
 - XML file following XSD spec
 
 **This bundle can currently produce the two first type : flat file CSV tab or pipe separator**, but can be extended to plug an adapter of your own to produce the XML or flat fixed width column format.
-
+ 
 A FEC file, whatever its type, must have at least 18 fields by accounting line, but it can be 21 or 22 columns.
 
 **18 columns** :
@@ -34,14 +34,16 @@ All fields are standardized, even if Debit and Credit fields can be switched by 
 **Note** : this bundle does not generate the associated textual description file.
 
 # Installation #
-use composer
+
+Use composer
 
     php composer.phar require "a5sys/fec-bundle:dev-master"
+
 or
 
     composer require "a5sys/fec-bundle:dev-master"
 
-Finally, declare bundle in `AppKernel.php` :
+Declare bundle in `AppKernel.php` :
 
     new A5sys\FecBundle\FecBundle(),
 
