@@ -3,8 +3,8 @@
 namespace A5sys\FecBundle\Service;
 
 use A5sys\FecBundle\Computer\DebitCredit\DebitCreditComputerInterface;
-use A5sys\FecBundle\Reader\ReaderInterface;
 use A5sys\FecBundle\Normalizer\NormalizerInterface;
+use A5sys\FecBundle\Reader\ReaderInterface;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**

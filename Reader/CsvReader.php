@@ -37,12 +37,12 @@ class CsvReader implements ReaderInterface
         $splFileObject = $file->openFile('r');
 
         // write csv data
-        return $this->readCsv($splFileObject);
+        $data = $this->readCsv($splFileObject);
 
         // close handle
         $splFileObject = null;
 
-        return $file;
+        return $data;
     }
 
     /**
@@ -129,7 +129,7 @@ class CsvReader implements ReaderInterface
         $fields = ['EcritureDate', 'PieceDate', 'DateLet', 'ValidDate', 'DateRglt'];
         foreach ($fields as $field) {
             if (isset($row[$field])) {
-                if ($row[$field] != "") {
+                if ($row[$field] !== '') {
                     $date = \DateTime::createFromFormat('Ymd', $row[$field]);
                     $date->setTime(0, 0, 0);
                     if (!$date) {
@@ -158,7 +158,7 @@ class CsvReader implements ReaderInterface
         $fields = ['Debit', 'Credit', 'Montant', 'Montantdevise'];
         foreach ($fields as $field) {
             if (isset($row[$field])) {
-                if ($row[$field] != "") {
+                if ($row[$field] != '') {
                     $dotted = str_replace(',', '.', $row[$field]);
 
                     if (!is_numeric($dotted)) {
@@ -185,7 +185,7 @@ class CsvReader implements ReaderInterface
     protected function convertStringFields(array $row, $cnt)
     {
         foreach ($row as $field => $value) {
-            if (is_string($row[$field]) && $row[$field] === "") {
+            if (is_string($row[$field]) && $row[$field] === '') {
                 $row[$field] = null;
             }
         }
