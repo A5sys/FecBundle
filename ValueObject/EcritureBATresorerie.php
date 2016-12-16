@@ -1,6 +1,6 @@
 <?php
 
-namespace A5sys\FecBundle\Input;
+namespace A5sys\FecBundle\ValueObject;
 
 /**
  * Représente une écriture comptable française pour les bénéfices agricoles comptabilisant les recettes et dépenses professionnelles
@@ -55,7 +55,7 @@ class EcritureBATresorerie extends AbstractEcritureComptable implements Ecriture
     /**
      * Affecte la date de réglement de l'écriture comptable
      * @param \DateTime $dateRglt
-     * @return \A5sys\FecBundle\Input\EcritureBATresorerie
+     * @return \A5sys\FecBundle\ValueObject\EcritureBATresorerie
      */
     public function setDateRglt(\DateTime $dateRglt)
     {
@@ -67,7 +67,7 @@ class EcritureBATresorerie extends AbstractEcritureComptable implements Ecriture
     /**
      * Affecte le mode de réglement
      * @param string $modeRglt
-     * @return \A5sys\FecBundle\Input\EcritureBATresorerie
+     * @return \A5sys\FecBundle\ValueObject\EcritureBATresorerie
      */
     public function setModeRglt($modeRglt)
     {
@@ -79,7 +79,7 @@ class EcritureBATresorerie extends AbstractEcritureComptable implements Ecriture
     /**
      * Affecte la nature de l'opération
      * @param string $natOp
-     * @return \A5sys\FecBundle\Input\EcritureBATresorerie
+     * @return \A5sys\FecBundle\ValueObject\EcritureBATresorerie
      */
     public function setNatOp($natOp = null)
     {

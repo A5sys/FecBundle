@@ -2,8 +2,9 @@
 
 namespace A5sys\FecBundle\Normalizer;
 
-use A5sys\FecBundle\Input\EcritureBNCTresorerieInterface;
-use A5sys\FecBundle\Input\EcritureComptableInterface;
+use A5sys\FecBundle\ValueObject\EcritureBNCTresorerieInterface;
+use A5sys\FecBundle\ValueObject\EcritureComptableInterface;
+use A5sys\FecBundle\ValueObject\EcritureBNCTresorerie;
 
 /**
  * EN : Normalize input to an assoc array for BNC Tresorerie
@@ -33,18 +34,44 @@ class BNCTresorerieNormalizer extends BATresorerieNormalizer
      * @throw A5sys\FecBundle\Exception\FecValidationException
      * @return array
      */
-    public function normalize(EcritureComptableInterface $ecritureComptable)
+    public function toArray(EcritureComptableInterface $ecritureComptable)
     {
         if (!$ecritureComptable instanceof EcritureBNCTresorerieInterface) {
             throw new FecException(get_class($this).' accepts only EcritureBNCTresorerieInterface instances. Maybe check object list you gave to the manager.');
         }
 
         // validation in parent
-        $data = parent::normalize($ecritureComptable);
+        $data = parent::toArray($ecritureComptable);
 
         // add new fields
         $data['IdClient'] = $ecritureComptable->getIdClient();
 
         return $data;
+    }
+
+    /**
+     * Normalize one array to an EcritureComptableInterface
+     * @param array $data
+     * @return EcritureBICIS
+     */
+    public function toValueObject(array $data)
+    {
+        $ecritureComptable = new EcritureBNCTresorerie();
+
+        $this->setStandardProperties($ecritureComptable, $data);
+        $this->setBATresorerieProperties($ecritureComptable, $data);
+        $this->setBNCTresorerieProperties($ecritureComptable, $data);
+
+        return $ecritureComptable;
+    }
+
+    /**
+     * Set the BNC Tresorerie specific properties
+     * @param EcritureBNCTresorerie $ecritureComptable
+     * @param array $data
+     */
+    protected function setBNCTresorerieProperties(EcritureBNCTresorerie $ecritureComptable, $data)
+    {
+        $ecritureComptable->setIdClient($data['IdClient']);
     }
 }

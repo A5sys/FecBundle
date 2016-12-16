@@ -57,7 +57,7 @@ class FecManager
      * @param \DateTime                         $dateClotureExercice   Closing date
      * @param array<EcritureComptableInterface> $ecritureComptableList List of conventionned input objects
      *
-     * @throws FecAdapterException
+     * @throws \A5sys\FecBundle\Exception\FecException
      * @return Symfony\Component\HttpFoundation\File\File
      */
     public function generateFile($siren, \DateTime $dateClotureExercice, $ecritureComptableList)
@@ -67,7 +67,7 @@ class FecManager
         $data = array();
         // loop over each EcritureComptableinterface to get correct FEC entry
         foreach ($ecritureComptableList as $ecritureComptable) {
-            $baseData = $this->normalizer->normalize($ecritureComptable);
+            $baseData = $this->normalizer->toArray($ecritureComptable);
             $computedData = $this->debitCreditComputer->compute($ecritureComptable);
             $completeData = $this->insertDebitCreditInBaseData($baseData, $computedData);
 

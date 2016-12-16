@@ -1,6 +1,6 @@
 <?php
 
-namespace A5sys\FecBundle\Input;
+namespace A5sys\FecBundle\ValueObject;
 
 /**
  * Représente une écriture comptable française
@@ -281,7 +281,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte le code journal de l'écriture comptable
      * @param string $journalCode
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setJournalCode($journalCode)
     {
@@ -293,7 +293,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte le libellé journal de l'écriture comptable
      * @param string $journalLib
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setJournalLib($journalLib)
     {
@@ -305,7 +305,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte le numéro sur une séquence continue de l'écriture comptable
      * @param string $ecritureNum
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setEcritureNum($ecritureNum)
     {
@@ -317,7 +317,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte la date de comptabilisation de l'écriture comptable
      * @param \DateTime $ecritureDate
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setEcritureDate(\DateTime $ecritureDate)
     {
@@ -329,7 +329,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte le numéro de compte, dont les trois premiers caractères doivent correspondre à des chiffres respectant les normes du plan comptable français
      * @param string $compteNum
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setCompteNum($compteNum)
     {
@@ -341,7 +341,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte le libellé de compte, conformément à la nomenclature du plan comptable français
      * @param string $compteLib
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setCompteLib($compteLib)
     {
@@ -353,7 +353,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Optionnel - Affecte le numéro de compte auxiliaire (à blanc si non utilisé)
      * @param string $compAuxNum
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setCompAuxNum($compAuxNum = null)
     {
@@ -365,7 +365,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Optionnel - Affecte le libellé de compte auxiliaire (à blanc si non utilisé)
      * @param string $compAuxLib
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setCompAuxLib($compAuxLib = null)
     {
@@ -377,7 +377,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte la référence de la pièce justificative
      * @param string $pieceRef
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setPieceRef($pieceRef)
     {
@@ -389,7 +389,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte la date de la pièce justificative
      * @param \DateTime $pieceDate
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setPieceDate(\DateTime $pieceDate)
     {
@@ -401,7 +401,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte le libellé de l'écriture comptable
      * @param string $ecritureLib
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setEcritureLib($ecritureLib)
     {
@@ -413,7 +413,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte le montant au débit
      * @param float $debit
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      * @throw \LogicException
      */
     public function setDebit($debit)
@@ -430,7 +430,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte le montant au crédit
      * @param float $credit
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      * @throw \LogicException
      */
     public function setCredit($credit)
@@ -447,7 +447,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Optionnel - Affecte le lettrage de l'écriture comptable (à blanc si non utilisé)
      * @param string $ecritureLet
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setEcritureLet($ecritureLet = null)
     {
@@ -459,7 +459,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Optionnel - Affecte la date de lettrage (à blanc si non utilisé)
      * @param \DateTime $dateLet
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setDateLet(\DateTime $dateLet = null)
     {
@@ -471,7 +471,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Affecte la date de validation de l'écriture comptable
      * @param \DateTime $validDate
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setValidDate(\DateTime $validDate)
     {
@@ -483,7 +483,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Optionnel - Affecte le montant en devise (à blanc si non utilisé)
      * @param float $montantDevise
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      * @throw \LogicException
      */
     public function setMontantdevise($montantDevise = null)
@@ -500,7 +500,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
     /**
      * Optionnel - Affecte l'identifiant de la devise (à blanc si non utilisé)
      * @param string $idDevise
-     * @return \A5sys\FecBundle\Input\EcritureComptable
+     * @return \A5sys\FecBundle\ValueObject\EcritureComptable
      */
     public function setIdevise($idDevise = null)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace A5sys\FecBundle\Input;
+namespace A5sys\FecBundle\ValueObject;
 
 /**
  * Interface représentant une écriture comptable française pour les bénéfices non commerciaux comptabilisant les recettes et dépenses professionnelles
@@ -16,7 +16,7 @@ interface EcritureBNCTresorerieInterface extends EcritureBATresorerieInterface
     /**
      * Affecte l'identification du client
      * @param string $idClient
-     * @return \A5sys\FecBundle\Input\EcritureBNCTresorerieInterface
+     * @return \A5sys\FecBundle\ValueObject\EcritureBNCTresorerieInterface
      */
     public function setIdClient($idClient = null);
 }

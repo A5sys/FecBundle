@@ -3,7 +3,7 @@
 namespace A5sys\FecBundle\Validator;
 
 use A5sys\FecBundle\Exception\FecValidationException;
-use A5sys\FecBundle\Input\EcritureComptableInterface;
+use A5sys\FecBundle\ValueObject\EcritureComptableInterface;
 use A5sys\FecBundle\Validator\ValidatorInterface;
 
 /**
