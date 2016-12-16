@@ -158,7 +158,7 @@ class CsvReader implements ReaderInterface
         $fields = ['Debit', 'Credit', 'Montant', 'Montantdevise'];
         foreach ($fields as $field) {
             if (isset($row[$field])) {
-                if ($row[$field] != '') {
+                if ($row[$field] !== '') {
                     $dotted = str_replace(',', '.', $row[$field]);
 
                     if (!is_numeric($dotted)) {
