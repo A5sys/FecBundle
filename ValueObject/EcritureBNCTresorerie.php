@@ -1,6 +1,6 @@
 <?php
 
-namespace A5sys\FecBundle\Input;
+namespace A5sys\FecBundle\ValueObject;
 
 /**
  * Représente une écriture comptable française pour les bénéfices non commerciaux comptabilisant les recettes et dépenses professionnelles
@@ -25,7 +25,7 @@ class EcritureBNCTresorerie extends EcritureBATresorerie implements EcritureBNCT
     /**
      * Affecte le mode de réglement
      * @param string $idClient
-     * @return \A5sys\FecBundle\Input\EcritureBNCTresorerie
+     * @return \A5sys\FecBundle\ValueObject\EcritureBNCTresorerie
      */
     public function setIdClient($idClient = null)
     {

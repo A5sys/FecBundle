@@ -5,15 +5,19 @@ parameters:
 
     fec.dumper.csv.class: 'A5sys\FecBundle\Dumper\CsvDumper'
 
+    fec.reader.csv.class: 'A5sys\FecBundle\Reader\CsvReader'
+
     fec.validator.standard.class: 'A5sys\FecBundle\Validator\StandardValidator'
     fec.validator.ba.tresorerie.class: 'A5sys\FecBundle\Validator\BATresorerieValidator'
     fec.validator.bnc.tresorerie.class: 'A5sys\FecBundle\Validator\BNCTresorerieValidator'
 
-    fec.normalizer.standard.class: 'A5sys\FecBundle\Normalizer\StandardNormalizer'
+    fec.normalizer.bic.is.class: 'A5sys\FecBundle\Normalizer\BICISNormalizer'
+    fec.normalizer.bnc.ba.dc.class: 'A5sys\FecBundle\Normalizer\BNCBADroitCommercialNormalizer'
     fec.normalizer.ba.tresorerie.class: 'A5sys\FecBundle\Normalizer\BATresorerieNormalizer'
     fec.normalizer.bnc.tresorerie.class: 'A5sys\FecBundle\Normalizer\BNCTresorerieNormalizer'
 
     fec.manager.class: 'A5sys\FecBundle\Service\FecManager'
+    fec.reader.class: 'A5sys\FecBundle\Service\FecReader'
 
 services:
 
@@ -40,6 +44,17 @@ services:
             - "|"
             - "txt"
 
+    # readers
+    fec.reader.csv.tab:
+        class: %fec.reader.csv.class%
+        arguments:
+            - "\t"
+
+    fec.reader.csv.pipe:
+        class: %fec.dumper.csv.class%
+        arguments:
+            - "|"
+
     # validators
     fec.validator.standard:
         class: %fec.validator.standard.class%
@@ -53,8 +68,13 @@ services:
         parent: fec.validator.ba.tresorerie
 
     # normalizers
-    fec.normalizer.standard:
-        class: %fec.normalizer.standard.class%
+    fec.normalizer.bic.is:
+        class: %fec.normalizer.bic.is.class%
+        arguments:
+            - "@fec.validator.standard"
+
+    fec.normalizer.bnc.ba.dc:
+        class: %fec.normalizer.bnc.ba.dc.class%
         arguments:
             - "@fec.validator.standard"
 

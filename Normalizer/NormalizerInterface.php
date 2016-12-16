@@ -2,7 +2,7 @@
 
 namespace A5sys\FecBundle\Normalizer;
 
-use A5sys\FecBundle\Input\EcritureComptableInterface;
+use A5sys\FecBundle\ValueObject\EcritureComptableInterface;
 
 /**
  * Interface representing a normalizer, so that is capable to retreive values from a EcritureComptableInterface or one of its child
@@ -23,5 +23,20 @@ interface NormalizerInterface
      *
      * @return array
      */
-    public function normalize(EcritureComptableInterface $ecritureComptableInterface);
+    public function toArray(EcritureComptableInterface $ecritureComptableInterface);
+
+     /**
+     * Normalize one array to an EcritureComptableInterface
+     * @param array $data
+     * @return EcritureComptableInterface
+     */
+    public function toValueObject(array $data);
+
+    /**
+     * Validate the object
+     * @param EcritureComptableInterface $ecritureComptable
+     *
+     * @throw FecValidationException
+     */
+    public function validateValueObject(EcritureComptableInterface $ecritureComptable);
 }

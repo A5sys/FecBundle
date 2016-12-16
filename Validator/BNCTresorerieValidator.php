@@ -3,8 +3,8 @@
 namespace A5sys\FecBundle\Validator;
 
 use A5sys\FecBundle\Exception\FecException;
-use A5sys\FecBundle\Input\EcritureComptableInterface;
-use A5sys\FecBundle\Input\EcritureBNCTresorerieInterface;
+use A5sys\FecBundle\ValueObject\EcritureComptableInterface;
+use A5sys\FecBundle\ValueObject\EcritureBNCTresorerieInterface;
 
 /**
  * EN : Validate input to an assoc array for BNC Tresorerie

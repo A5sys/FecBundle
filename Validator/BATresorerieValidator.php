@@ -4,8 +4,8 @@ namespace A5sys\FecBundle\Validator;
 
 use A5sys\FecBundle\Exception\FecException;
 use A5sys\FecBundle\Exception\FecValidationException;
-use A5sys\FecBundle\Input\EcritureComptableInterface;
-use A5sys\FecBundle\Input\EcritureBATresorerieInterface;
+use A5sys\FecBundle\ValueObject\EcritureComptableInterface;
+use A5sys\FecBundle\ValueObject\EcritureBATresorerieInterface;
 
 /**
  * EN : Validate input to an assoc array for BA Tresorerie
