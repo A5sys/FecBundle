@@ -68,7 +68,7 @@ class FecManager
         // loop over each EcritureComptableinterface to get correct FEC entry
         foreach ($ecritureComptableList as $ecritureComptable) {
             $baseData = $this->normalizer->toArray($ecritureComptable);
-            $computedData = $this->debitCreditComputer->compute($ecritureComptable);
+            $computedData = $this->debitCreditComputer->toArray($ecritureComptable);
             $completeData = $this->insertDebitCreditInBaseData($baseData, $computedData);
 
             $data[] = $completeData;
