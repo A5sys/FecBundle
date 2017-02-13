@@ -492,7 +492,7 @@ abstract class AbstractEcritureComptable implements EcritureComptableInterface
             throw new \LogicException('setMontantdevise : "'.$montantDevise.'" is not a numeric value');
         }
 
-        $this->montantdevise = floatval($montantDevise);
+        $this->montantdevise = $montantDevise !== null ? floatval($montantDevise) : null;
 
         return $this;
     }
