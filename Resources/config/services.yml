@@ -23,67 +23,67 @@ services:
 
     # computers
     fec.computer.debitcredit:
-        class: %fec.computer.debitcredit.class%
+        class: "%fec.computer.debitcredit.class%"
 
     fec.computer.montantsens.alpha:
-        class: %fec.computer.montantsens.alpha.class%
+        class: "%fec.computer.montantsens.alpha.class%"
 
     fec.computer.montantsens.num:
-        class: %fec.computer.montantsens.num.class%
+        class: "%fec.computer.montantsens.num.class%"
 
     # dumpers
     fec.dumper.csv.tab.txt:
-        class: %fec.dumper.csv.class%
+        class: "%fec.dumper.csv.class%"
         arguments:
             - "\t"
             - "txt"
 
     fec.dumper.csv.pipe.txt:
-        class: %fec.dumper.csv.class%
+        class: "%fec.dumper.csv.class%"
         arguments:
             - "|"
             - "txt"
 
     # readers
     fec.reader.csv.tab:
-        class: %fec.reader.csv.class%
+        class: "%fec.reader.csv.class%"
         arguments:
             - "\t"
 
     fec.reader.csv.pipe:
-        class: %fec.dumper.csv.class%
+        class: "%fec.dumper.csv.class%"
         arguments:
             - "|"
 
     # validators
     fec.validator.standard:
-        class: %fec.validator.standard.class%
+        class: "%fec.validator.standard.class%"
 
     fec.validator.ba.tresorerie:
-        class: %fec.validator.ba.tresorerie.class%
+        class: "%fec.validator.ba.tresorerie.class%"
         parent: fec.validator.standard
 
     fec.validator.bnc.tresorerie:
-        class: %fec.validator.bnc.tresorerie.class%
+        class: "%fec.validator.bnc.tresorerie.class%"
         parent: fec.validator.ba.tresorerie
 
     # normalizers
     fec.normalizer.bic.is:
-        class: %fec.normalizer.bic.is.class%
+        class: "%fec.normalizer.bic.is.class%"
         arguments:
             - "@fec.validator.standard"
 
     fec.normalizer.bnc.ba.dc:
-        class: %fec.normalizer.bnc.ba.dc.class%
+        class: "%fec.normalizer.bnc.ba.dc.class%"
         arguments:
             - "@fec.validator.standard"
 
     fec.normalizer.ba.tresorerie:
-        class: %fec.normalizer.ba.tresorerie.class%
+        class: "%fec.normalizer.ba.tresorerie.class%"
         arguments:
             - "@fec.validator.ba.tresorerie"
 
     fec.normalizer.bnc.tresorerie:
-        class: %fec.normalizer.ba.tresorerie.class%
+        class: "%fec.normalizer.ba.tresorerie.class%"
         arguments:
             - "@fec.validator.bnc.tresorerie"
