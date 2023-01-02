@@ -120,9 +120,9 @@ class FecManager
         $pos = array_search('EcritureLib', array_keys($baseData));
 
         return array_merge(
-            array_slice($baseData, 0, $pos),
+            array_slice($baseData, 0, $pos+1),
             $computedData,
-            array_slice($baseData, $pos)
+            array_slice($baseData, $pos+1)
         );
     }
 
@@ -137,9 +137,9 @@ class FecManager
         $pos = array_search('EcritureLib', $baseData);
 
         return array_merge(
-            array_slice($baseData, 0, $pos),
+            array_slice($baseData, 0, $pos+1),
             $computedData,
-            array_slice($baseData, $pos)
+            array_slice($baseData, $pos+1)
         );
     }
 }
