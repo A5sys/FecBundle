@@ -38,14 +38,13 @@ class FecManager
 
     /**
      * Constructor
-     * @param string              $directory
      * @param DumperInterface     $dumper
      * @param NormalizerInterface $normalizer
      * @param ComputerInterface   $debitCreditComputer
      */
-    public function __construct($directory, DumperInterface $dumper, NormalizerInterface $normalizer, DebitCreditComputerInterface $debitCreditComputer)
+    public function __construct(DumperInterface $dumper, NormalizerInterface $normalizer, DebitCreditComputerInterface $debitCreditComputer)
     {
-        $this->directory = $directory;
+        $this->directory = sys_get_temp_dir().DIRECTORY_SEPARATOR;
         $this->dumper = $dumper;
         $this->normalizer = $normalizer;
         $this->debitCreditComputer = $debitCreditComputer;
@@ -120,9 +119,9 @@ class FecManager
         $pos = array_search('EcritureLib', array_keys($baseData));
 
         return array_merge(
-            array_slice($baseData, 0, $pos),
+            array_slice($baseData, 0, $pos+1),
             $computedData,
-            array_slice($baseData, $pos)
+            array_slice($baseData, $pos+1)
         );
     }
 
@@ -137,9 +136,9 @@ class FecManager
         $pos = array_search('EcritureLib', $baseData);
 
         return array_merge(
-            array_slice($baseData, 0, $pos),
+            array_slice($baseData, 0, $pos+1),
             $computedData,
-            array_slice($baseData, $pos)
+            array_slice($baseData, $pos+1)
         );
     }
 }
