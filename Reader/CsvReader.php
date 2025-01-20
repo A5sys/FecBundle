@@ -60,17 +60,19 @@ class CsvReader implements ReaderInterface
         $fileObject->setFlags(\SplFileObject::READ_CSV | \SplFileObject::READ_AHEAD | \SplFileObject::SKIP_EMPTY);
         while (!$fileObject->eof()) {
             $row = $this->readLine($fileObject, $cnt);
-            if(!$header) {
-                $header = $row;
-            } else {
-                if (count($row) !== 0) { // if not empty (needed as PHP ignore SKIP_EMPTY for now)
-                    if (count($header) !== count($row)) {
-                        throw new FecException('Malformed FEC file. The Line '.$cnt.' has '.count($row).' columns, but there is '.count($header).' columns in the header');
+            if ($row) {
+                if(!$header) {
+                    $header = $row;
+                } else {
+                    if (count($row) !== 0) { // if not empty (needed as PHP ignore SKIP_EMPTY for now)
+                        if (count($header) !== count($row)) {
+                            throw new FecException('Malformed FEC file. The Line '.$cnt.' has '.count($row).' columns, but there is '.count($header).' columns in the header');
+                        }
+                        $data[] = $this->convertFields(array_combine($header, $row), $cnt);
                     }
-                    $data[] = $this->convertFields(array_combine($header, $row), $cnt);
                 }
+                $cnt++;
             }
-            $cnt++;
         }
 
         return $data;
